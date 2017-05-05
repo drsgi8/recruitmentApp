@@ -1,0 +1,10 @@
+<table>
+  <tr *ngFor="let empl of employees" (click)="showDetails(empl)">
+    <td>{{empl.id}}</td>
+    <td>{{empl.firstName}}</td>
+    <td>{{empl.lastName}}</td>
+    <td>{{empl.dateOfBirth}}</td>
+    <td>{{empl.function}}</td>
+    <td>{{empl.experience}}</td>
+  </tr>
+</table>
