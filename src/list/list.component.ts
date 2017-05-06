@@ -21,6 +21,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getList()
-      .then(empls => this.employees = empls);
+      .subscribe(list => this.employees = list);
   }
 }

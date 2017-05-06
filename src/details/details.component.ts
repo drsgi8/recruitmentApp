@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Employee } from "../shared/Employee";
 import {EmployeeService} from "../shared/employee.service";
@@ -8,22 +9,26 @@ import 'rxjs/add/operator/switchMap';
 
 
 @Component({
-  selector: 'details',
+  selector: 'my-details',
   templateUrl: './details.component.html',
 })
 export class DetailsComponent implements OnInit{
   @Input()
   employee: Employee;
 
-  araj: string;
-
-  employees: Employee[];
-
-  constructor(private service: EmployeeService, private route: ActivatedRoute){}
+  constructor(
+    private service: EmployeeService,
+    private route: ActivatedRoute,
+    private location: Location ){}
 
   ngOnInit(): void {
-    this.route.params
-      .switchMap((params: Params) => this.service.getEmployee(+params['id']))
-      .subscribe(empl => this.employee = empl)
+    let id = +this.route.snapshot.params['id'];
+    this.service.getList()
+    .subscribe(list => this.employee = list.find(empl => empl.id === id));
   }
+
+  back(){
+      this.location.back();
+  }
+
 }

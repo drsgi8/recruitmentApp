@@ -14,16 +14,10 @@ export class EmployeeService{
 
   constructor(private http: Http){}
 
-  getList(): Promise<Employee[]>{
+  getList(): Observable<Employee[]>{
     return this.http.get('../assets/sluzba.json')
-      .toPromise()
-      .then(res => res.json() as Employee[])
+      .map((res: Response) => res.json())
       .catch(this.handleError);
-  }
-
-  getEmployee(id: number): Promise<Employee>{
-    return this.getList()
-      .then(employees => employees.find(emp => emp.id === id));
   }
 
   private handleError(error: Response | any) {

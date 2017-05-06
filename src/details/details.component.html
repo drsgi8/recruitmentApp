@@ -1,7 +1,16 @@
-<!--<h1>{{employee.firstName}} {{employee.firstName}}</h1>-->
-<!--<label>ID: </label><span>{{employee.id}}</span>-->
-<!--<label>Date of Birth: </label><span>{{employee.dateOfBirth}}</span>-->
-<!--<label>Function: </label><span>{{employee.function}}</span>-->
-<!--<label>Experience: </label><span>{{employee.experience}}</span>-->
-{{employee.id}}
-<div *ngIf="employee">{{employee.firstName}}</div>
+<div *ngIf="employee">
+<h1>{{employee.firstName}} {{employee.firstName}}</h1>
+
+  <label>First Name: </label><input [(ngModel)]="employee.firstName" placeholder="first name">
+  <br>
+  <label>Last Name: </label><input [(ngModel)]="employee.lastName" placeholder="last name">
+  <br>
+  <label>ID: </label><input [(ngModel)]="employee.id" placeholder="id">
+  <br>
+  <label>Date of Birth: </label><input [(ngModel)]="employee.dateOfBirth" placeholder="date of birth">
+  <br>
+  <label>Function: </label><input [(ngModel)]="employee.function" placeholder="function">
+  <br>
+  <label>Experience: </label><input [(ngModel)]="employee.experience" placeholder="experience">
+</div>
+<button (click)="back()">Go Back</button>
