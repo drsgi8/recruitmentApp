@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { MyDatePickerModule } from 'mydatepicker';
+
 import { AppComponent } from './app.component';
 import { EmployeeService } from "../shared/employee.service";
 import { ListComponent } from "../list/list.component";
@@ -19,7 +21,8 @@ import {DetailsComponent} from "../details/details.component";
     BrowserModule,
     FormsModule,
     HttpModule,
-    RoutingModule
+    RoutingModule,
+    MyDatePickerModule
   ],
   providers: [ EmployeeService ],
   bootstrap: [ AppComponent ]

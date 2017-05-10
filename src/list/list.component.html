@@ -1,10 +1,68 @@
+<div class="bar">
+  <div class="pagination">
+    <button class="next_prev" id="prev" (click)="pageDown()">PREVIOUS PAGE</button>
+    <div *ngFor="let page of [currentPage-2, currentPage-1, currentPage, currentPage+1, currentPage+2]">
+      <button *ngIf="page > 0 && page < numberOfPages"
+              (click)="goTo(page)">{{page}}
+      </button>
+    </div>
+    ...
+    <button (click)="goTo(numberOfPages)">{{numberOfPages}}</button>
+    <button class="next_prev" id="next" (click)="pageUp()">NEXT PAGE</button>
+  </div>
+
+    <div class="sort_filter">
+      <!--filter-->
+      <div class="format">
+        <button class="dropButton" (click)="showDropdown('filterDropdown')">FILTER BY {{filterBy}}</button>
+        <div class="dropdown_items" id="filterDropdown">
+          <a (click)="filterByNone()">None</a>
+          <a (click)="filterById()">By id</a>
+          <a (click)="filterByName()">By name</a>
+          <a (click)="filterByLastName()">By last name</a>
+          <a (click)="customFilterByDate()">By birthdate</a>
+          <a (click)="filterByFunction()">By function</a>
+          <a (click)="filterByExperience()">By experience</a>
+        </div>
+        <input *ngIf="filterBy && filterBy != 'DATE'" id="filterInput" [(ngModel)]="filterString" placeholder="filtering" (keyup)="filter()">
+        <my-date-picker *ngIf="filterBy == 'DATE'" id="date" name="mydate"
+                        [options]="datePickerOptions"
+                        [(ngModel)]="dateModel"
+                        (dateChanged)="onDateChanged($event)"
+                        required></my-date-picker>
+      </div>
+      <!--sort-->
+      <button class="dropButton" (click)="showDropdown('dropdown')">SORT BY {{sortBy}}</button>
+      <div class="dropdown_items" id="dropdown">
+        <a (click)="sortById()">By id</a>
+        <a (click)="sortByName()">By name</a>
+        <a (click)="sortByLastName()">By last name</a>
+        <a (click)="sortByBirthdate()">By birthdate</a>
+        <a (click)="sortByFunction()">By function</a>
+        <a (click)="sortByExperience()">By experience</a>
+      </div>
+    </div>
+</div>
+
 <table>
-  <tr *ngFor="let empl of employees" (click)="showDetails(empl)">
-    <td>{{empl.id}}</td>
-    <td>{{empl.firstName}}</td>
-    <td>{{empl.lastName}}</td>
-    <td>{{empl.dateOfBirth}}</td>
-    <td>{{empl.function}}</td>
-    <td>{{empl.experience}}</td>
+  <tr>
+    <td class="_id"> ID:</td>
+    <td class="_light">First name:</td>
+    <td class="_dark">Last name:</td>
+    <td class="_light">Birthdate:</td>
+    <td class="_dark">Function:</td>
+    <td class="_light">Experience:</td>
+    <td class="_edit"></td>
+  </tr>
+  <tr *ngFor="let empl of employeesOnPage">
+    <td class="id">{{empl.id}}</td>
+    <td class="light">{{empl.firstName}}</td>
+    <td class="dark">{{empl.lastName}}</td>
+    <td class="light">{{empl.dateOfBirth}}</td>
+    <td class="dark">{{empl.function}}</td>
+    <td class="light">{{empl.experience}}</td>
+    <td class="edit" (click)="showDetails(empl)">EDIT</td>
   </tr>
 </table>
+
+

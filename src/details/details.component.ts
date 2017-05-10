@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -13,7 +13,6 @@ import 'rxjs/add/operator/switchMap';
   templateUrl: './details.component.html',
 })
 export class DetailsComponent implements OnInit{
-  @Input()
   employee: Employee;
 
   constructor(
