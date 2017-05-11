@@ -9,13 +9,11 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from "../shared/employee.service";
 import { ListComponent } from "../list/list.component";
 import { RoutingModule } from "../shared/routing.module";
-import {DetailsComponent} from "../details/details.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    DetailsComponent
+    ListComponent
   ],
   imports: [
     BrowserModule,

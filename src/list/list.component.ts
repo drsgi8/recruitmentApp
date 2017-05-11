@@ -10,11 +10,13 @@ const RECORDS_ON_PAGE: number = 5;
 document.onclick = (event)=>{
   if(!event.toElement.matches(".dropButton")) {
     let sortList = document.getElementById("dropdown");
-    if (sortList.classList.contains("show"))
-      sortList.classList.remove("show");
+    if(sortList.classList)
+      if (sortList.classList.contains("show"))
+        sortList.classList.remove("show");
     let filterList = document.getElementById("filterDropdown");
-    if (filterList.classList.contains("show"))
-      filterList.classList.remove("show");
+    if(filterList.classList != null)
+      if (filterList.classList.contains("show"))
+        filterList.classList.remove("show");
   }
 };
 
@@ -219,9 +221,6 @@ export class ListComponent implements OnInit {
     return 0;
   }
   ////REUTER NAVIGATION////
-  showDetails(empl: Employee): void{
-    this.router.navigate(['/details', empl.id]);
-  }
   pageUp(): void{
     if(this.currentPage < this.numberOfPages) {
       this.router.navigate(['/list', ++this.currentPage]);
