@@ -1,5 +1,4 @@
-.edit {
-  cursor: pointer;
+tbody .edit {
   min-width: 50px;
   height: auto;
   padding: 10px 20px;
@@ -7,31 +6,33 @@
   -moz-border-radius: 0 2em 2em 0;
   -webkit-border-radius: 0 2em 2em 0;
   border-radius: 0 2em 2em 0;
-  color: #fffd;
   background: #fd0;
 }
-.edit:hover{
-  background-color: #bbb;
-}
-._edit {
-  min-width: 50px;
-  height: auto;
-  padding: 10px 20px;
-  border: none;
-  -moz-border-radius: 0 0 2em 0;
-  -webkit-border-radius: 0 0 2em 0;
-  border-radius: 0 0 2em 0;
-  background: #fc0;
-}
-.id {
+tbody .id {
   min-width: 50px;
   border-radius: 2em 0 0 2em;
   -moz-border-radius: 2em 0 0 2em;
   -webkit-border-radius: 2em 0 0 2em;
-  background-color: #ffd500;
+  background-color: #fd0;
   padding: 10px 20px;
 }
-._id {
+tbody .dark {
+  background-color: #ddd;
+  padding: 10px 20px;
+}
+tbody .light {
+  background-color: #eee;
+  padding: 10px 20px;
+}
+thead .dark {
+  background-color: #ccc;
+  padding: 10px 20px;
+}
+thead .light {
+  background-color: #e5e5e5;
+  padding: 10px 20px;
+}
+thead .id {
   text-align: center;
   min-width: 50px;
   border-radius: 0 0 0 2em;
@@ -39,6 +40,16 @@
   -webkit-border-radius: 0 0 0 2em;
   background-color: #ffd500;
   padding: 10px 20px;
+}
+thead .edit {
+  min-width: 50px;
+  height: auto;
+  padding: 10px 20px;
+  border: none;
+  -moz-border-radius: 0 0 2em 0;
+  -webkit-border-radius: 0 0 2em 0;
+  border-radius: 0 0 2em 0;
+  background: #ffd500;
 }
 table {
   margin-left: 20px;
@@ -48,20 +59,4 @@ table {
 table * {
   font-family: Arial, sans-serif;
   font-size: larger;
-}
-.dark {
-  background-color: #ddd;
-  padding: 10px 20px;
-}
-.light {
-  background-color: #eee;
-  padding: 10px 20px;
-}
-._dark {
-  background-color: #ccc;
-  padding: 10px 20px;
-}
-._light {
-  background-color: #e5e5e5;
-  padding: 10px 20px;
 }

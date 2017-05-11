@@ -24,7 +24,7 @@
           <a (click)="filterByFunction()">By function</a>
           <a (click)="filterByExperience()">By experience</a>
         </div>
-        <input *ngIf="filterBy && filterBy != 'DATE'" id="filterInput" [(ngModel)]="filterString" placeholder="filtering" (keyup)="filter()">
+        <input *ngIf="filterBy && filterBy != 'DATE'" id="filterInput" [(ngModel)]="filterString" placeholder="type your {{filterBy.toLowerCase()}}" (keyup)="filter()">
         <my-date-picker *ngIf="filterBy == 'DATE'" id="date" name="mydate"
                         [options]="datePickerOptions"
                         [(ngModel)]="dateModel"
@@ -45,24 +45,27 @@
 </div>
 
 <table>
-  <tr>
-    <td class="_id"> ID:</td>
-    <td class="_light">First name:</td>
-    <td class="_dark">Last name:</td>
-    <td class="_light">Birthdate:</td>
-    <td class="_dark">Function:</td>
-    <td class="_light">Experience:</td>
-    <td class="_edit"></td>
-  </tr>
-  <tr *ngFor="let empl of employeesOnPage">
-    <td class="id">{{empl.id}}</td>
-    <td class="light">{{empl.firstName}}</td>
-    <td class="dark">{{empl.lastName}}</td>
-    <td class="light">{{empl.dateOfBirth}}</td>
-    <td class="dark">{{empl.function}}</td>
-    <td class="light">{{empl.experience}}</td>
-    <td class="edit">EDIT</td>
-  </tr>
+  <thead>
+    <tr>
+      <td class="id"> ID:</td>
+      <td class="light">First name:</td>
+      <td class="dark">Last name:</td>
+      <td class="light">Birthdate:</td>
+      <td class="dark">Function:</td>
+      <td class="light">Experience:</td>
+      <td class="edit"></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empl of employeesOnPage">
+      <td class="id">{{empl.id}}</td>
+      <td class="light">{{empl.firstName}}</td>
+      <td class="dark">{{empl.lastName}}</td>
+      <td class="light">{{empl.dateOfBirth}}</td>
+      <td class="dark">{{empl.function}}</td>
+      <td class="light">{{empl.experience}}</td>
+      <td class="edit"></td>
+    </tr>
+  </tbody>
 </table>
-
 
